@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calculadora Notas</string>
+    <string name="usuario_logado_sp">logado</string>
+    <string name="nome_usuario_sp">nome_usuario</string>
+</resources>

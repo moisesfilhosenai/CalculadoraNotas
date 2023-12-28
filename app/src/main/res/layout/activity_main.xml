@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Calculadora de Notas"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextNomeAluno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Nome do aluno"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+
+    <EditText
+        android:id="@+id/editTextNotaPrimeiraAtividade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Nota atividade 1"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeDisciplina"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeDisciplina"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeDisciplina" />
+
+    <EditText
+        android:id="@+id/editTextNotaSegundaAtividade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Nota atividade 2"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNotaPrimeiraAtividade"
+        app:layout_constraintStart_toStartOf="@+id/editTextNotaPrimeiraAtividade"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNotaPrimeiraAtividade" />
+
+    <EditText
+        android:id="@+id/editTextNotaProva"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Nota prova"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNotaSegundaAtividade"
+        app:layout_constraintStart_toStartOf="@+id/editTextNotaSegundaAtividade"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNotaSegundaAtividade" />
+
+    <EditText
+        android:id="@+id/editTextQtdeFaltas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Quantidade faltas"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNotaProva"
+        app:layout_constraintStart_toStartOf="@+id/editTextNotaProva"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNotaProva" />
+
+    <Button
+        android:id="@+id/buttonAvaliarAluno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Avaliar Aluno"
+        app:layout_constraintEnd_toEndOf="@+id/editTextQtdeFaltas"
+        app:layout_constraintStart_toStartOf="@+id/editTextQtdeFaltas"
+        app:layout_constraintTop_toBottomOf="@+id/editTextQtdeFaltas" />
+
+    <EditText
+        android:id="@+id/editTextNomeDisciplina"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Nome da disciplina"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAluno"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAluno"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAluno" />
+
+    <Button
+        android:id="@+id/buttonLimpar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Limpar"
+        app:layout_constraintEnd_toEndOf="@+id/buttonAvaliarAluno"
+        app:layout_constraintStart_toStartOf="@+id/buttonAvaliarAluno"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAvaliarAluno" />
+
+    <Button
+        android:id="@+id/buttonDeslogar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Deslogar"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLimpar"
+        app:layout_constraintStart_toStartOf="@+id/buttonLimpar"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLimpar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
