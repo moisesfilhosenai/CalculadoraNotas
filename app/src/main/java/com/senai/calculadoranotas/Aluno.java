@@ -10,6 +10,7 @@ public class Aluno {
     private int notaProva;
     private int qtdeFaltas;
     private double media;
+    private boolean aprovado;
 
     public Aluno(String nome, String disciplina, int notaPrimeiraAtividade, int notaSegundaAtividade, int notaProva, int qtdeFaltas) {
         this.nome = nome;
@@ -18,6 +19,7 @@ public class Aluno {
         this.notaSegundaAtividade = notaSegundaAtividade;
         this.notaProva = notaProva;
         this.qtdeFaltas = qtdeFaltas;
+        this.aprovado = false;
     }
 
     /**
@@ -25,9 +27,9 @@ public class Aluno {
      * Soma das atividades tem peso 40%
      * Nota da prova tem peso 60%
      */
-    private void calcularMedia() {
-        double notaAtividades = (this.notaPrimeiraAtividade + this.notaSegundaAtividade) * 0.4;
-        this.media = notaAtividades + (this.notaProva * 0.6);
+    public void calcularMedia() {
+        double notaAtividades = (this.notaPrimeiraAtividade + this.notaSegundaAtividade) * Utils.PESO_ATIVIDADES;
+        this.media = notaAtividades + (this.notaProva * Utils.PESO_PROVA);
     }
 
     /**
@@ -38,21 +40,30 @@ public class Aluno {
     public String verificarAlunoAprovado() {
         Locale locale = new Locale("pt", "BR");
 
-        this.calcularMedia();
-
         String mensagem = "";
 
-        if (this.qtdeFaltas > 4) {
+        if (this.qtdeFaltas > Utils.LIMITE_FALTAS) {
+            this.aprovado = false;
             mensagem = String.format(locale, "Aluno %s reprovado na disciplina de %s por faltas, qtde: %d",
                     this.nome, this.disciplina, this.qtdeFaltas);
         } else if (this.media >= 6) {
+            this.aprovado = true;
             mensagem = String.format(locale, "O aluno %s está aprovado na disciplina de %s com média %.2f",
                     this.nome, this.disciplina, this.media);
         } else if (this.media < 6) {
+            this.aprovado = false;
             mensagem = String.format(locale, "O aluno %s está reprovado na disciplina de %s com média %.2f",
                     this.nome, this.disciplina, this.media);
         }
 
         return mensagem;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public boolean isAprovado() {
+        return aprovado;
     }
 }

@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int qtdeFaltas = Integer.parseInt(editTextQtdeFaltas.getText().toString());
 
         Aluno aluno = new Aluno(nome, disciplina, notaPrimeiraAtividade, notaSegundaAtividade, notaProva, qtdeFaltas);
+        aluno.calcularMedia();
         String mensagem = aluno.verificarAlunoAprovado();
 
         Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
