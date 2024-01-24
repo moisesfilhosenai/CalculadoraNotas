@@ -60,8 +60,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(this, "Preencha o campo usuário", Toast.LENGTH_SHORT).show();
         } else {
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString(Utils.NOME_USUARIO, nomeUsuario);
             editor.putBoolean(Utils.USUARIO_LOGADO, true);
+
+            editor.putString(Utils.NOME_USUARIO, nomeUsuario); // Aluno
             editor.apply();
         }
     }

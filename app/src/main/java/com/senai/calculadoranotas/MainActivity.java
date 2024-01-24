@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences sharedPreferences;
 
     private EditText editTextNomeAluno;
-    private EditText editTextNomeDisciplina;
+    private EditText editTextNomeDisciplina; // Aluno
     private EditText editTextNotaPrimeiraAtividade;
-    private EditText editTextNotaSegundaAtividade;
-    private EditText editTextNotaProva;
-    private EditText editTextQtdeFaltas;
+    private EditText editTextNotaSegundaAtividade; // Aluno
+    private EditText editTextNotaProva; // Aluno
+    private EditText editTextQtdeFaltas; // Aluno
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +50,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
             calcularMediaAluno();
-        } else if (view.getId() == R.id.buttonLimpar) {
-            limpar();
+        } else if (view.getId() == R.id.buttonLimpar) { // Aluno
+            limpar(); // Aluno
 
         } else if (view.getId() == R.id.buttonDeslogar) {
             deslogar();
         }
     }
 
+    /**
+     * Aluno
+     */
     private void alterarTitulo() {
         TextView textViewTitulo = findViewById(R.id.textViewTitulo);
-
         String nomeUsuario = sharedPreferences.getString(Utils.NOME_USUARIO, "");
         String titulo = textViewTitulo.getText().toString().concat(" - ").concat(nomeUsuario);
         textViewTitulo.setText(titulo);
@@ -68,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void calcularMediaAluno() {
         editTextNomeAluno = findViewById(R.id.editTextNomeAluno);
-        editTextNomeDisciplina = findViewById(R.id.editTextNomeDisciplina);
+        editTextNomeDisciplina = findViewById(R.id.editTextNomeDisciplina); // Aluno
         editTextNotaPrimeiraAtividade = findViewById(R.id.editTextNotaPrimeiraAtividade);
-        editTextNotaSegundaAtividade = findViewById(R.id.editTextNotaSegundaAtividade);
-        editTextNotaProva = findViewById(R.id.editTextNotaProva);
-        editTextQtdeFaltas = findViewById(R.id.editTextQtdeFaltas);
+        editTextNotaSegundaAtividade = findViewById(R.id.editTextNotaSegundaAtividade); // Aluno
+        editTextNotaProva = findViewById(R.id.editTextNotaProva); // Aluno
+        editTextQtdeFaltas = findViewById(R.id.editTextQtdeFaltas); // Aluno
 
         String nome = editTextNomeAluno.getText().toString();
         String disciplina = editTextNomeDisciplina.getText().toString();
@@ -87,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Aluno
+     */
     private void limpar() {
         editTextNomeAluno.setText("");
         editTextNomeDisciplina.setText("");
@@ -99,11 +104,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void deslogar() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove(Utils.NOME_USUARIO);
-        editor.remove(Utils.USUARIO_LOGADO);
+        editor.remove(Utils.USUARIO_LOGADO); // Aluno
         editor.apply();
 
-        Intent telaLogin = new Intent(this, LoginActivity.class);
-        startActivity(telaLogin);
+        Intent telaLogin = new Intent(this, LoginActivity.class); // Aluno
+        startActivity(telaLogin); // Aluno
+        finish(); // Aluno
     }
 
 }
